@@ -18,4 +18,4 @@ In this solution, Apigee is providing middleware to manage authentication and ro
 ##Authentication between AppSheet and Apigee
 AppSheet uses an OAuth client credentials grant type to authenticate with Apigee. In this process, Apigee serves as the identity provider (IdP). The process is described in the documentation page, [Implementing the client credentials grant type](https://cloud.google.com/apigee/docs/api-platform/security/oauth/oauth-20-client-credentials-grant-type). The high level steps are as follows:
 
-1. Create an Apigee proxy to generate an OAuth token. Note the proxy endpoint. ![Click here](Apigee/oauth.zip) for an example proxy that can be imported to Apigee.
+1. Create an Apigee proxy to generate an OAuth token. Note the proxy endpoint. [Click here](Apigee/oauth.zip) for an example proxy that can be imported to Apigee.
