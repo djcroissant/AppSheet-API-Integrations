@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Issues Design Pattern
+  description: Shows Issues collection RESTful design pattern. Used in AppSheet App.
+servers:
+  - url: 'https://apigee-x-eval.derekwilde.com/djw_appsheet_app_int'
+paths:
+  '/jira_issues':
+    get:
+      tags:
+        - Issue
+      description: Return list of issues assigned to logged in user
+      operationId: getIssues
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+        '400':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Issue
+      description: Create new issue
+      operationId: createIssue
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+        '400':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  '/jira_issues/{id}':
+    get:
+      tags:
+        - Issue
+      description: Return issue details.
+      summary: Return details for an existing issue.
+      operationId: getIssue
+      parameters:
+        - $ref: '#/components/parameters/issueIdPath'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+        '400':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - Issue
+      description: Update issue details.
+      summary: Update details for an existing issue.
+      operationId: updateIssue
+      parameters:
+        - $ref: '#/components/parameters/issueIdPath'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+        '400':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - Issue
+      description: Delete issue
+      summary: Return details for an existing issue.
+      operationId: deleteIssue
+      parameters:
+        - $ref: '#/components/parameters/issueIdPath'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssuesResponse'
+        '400':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+security:
+  - ClientCredentials: []
+components:
+  securitySchemes:
+    ClientCredentials:
+      type: oauth2
+      description: See https://cloud.google.com/apigee/docs/api-platform/security/oauth/oauth-20-client-credentials-grant-type
+      flows:
+        clientCredentials:
+          tokenUrl: https://apigee-x-eval.derekwilde.com/oauth/client_credential/accesstoken
+          scopes: {}
+  parameters:
+    issueIdPath:
+      in: path
+      name: id
+      description: The issue identifier.
+      required: true
+      schema:
+        type: string
+  schemas:
+    Issue:
+      type: object
+      required:
+        - Id
+      additionalProperties: false
+      properties:
+        Id:
+          type: string
+    IssuesResponse:
+      type: object
+      properties:
+        issues:
+          type: array
+          issues:
+            $ref: '#/components/schemas/Issue'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        userMessage:
+          type: string
+        systemMessage:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          description: Used to pass error information in a response.
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
