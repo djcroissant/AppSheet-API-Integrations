@@ -89,8 +89,47 @@ The steps below describe how to create a service account with the correct permis
  ![Attach Service Account](Images/service_account.png)
 
 # Application Integration Platform
+The Application Integration platform connects Apigee to the target data source via an Integration Connector. 
+
+See the [Integration Connectors reference](https://cloud.google.com/integration-connectors/docs/connector-reference-overview) for a list of supported service
+
 ## Connector
+The connector provides connectivity to a specific data source. The APIs for each data source have different requirements for the request and response format. The connectors provide a standardized interface by abstracting the unique requirements. This enables us to create an integration design pattern that can be reused with any of the supported Connectors. 
+
+The following steps describe the process to create a connection
+
+1. Follow the ['Create a connection'](https://cloud.google.com/integration-connectors/docs/manage-connections#create-a-connection) steps to get started.
+2. [Select the target service](https://cloud.google.com/integration-connectors/docs/connector-reference-overview) for service-specific directions
+3. Follow the steps for your specific service to create a connection
+
 ## Integration
+The integration consists of three components:
+
+1. API Trigger
+2. Connector
+3. Data mapping
+
+### API Trigger
+The API Trigger provides a trigger ID so that the Integration can be executed by API. Each function should be organized into its own integration with its own API Trigger. To have full CRUD functionality, you need the following integrations
+
+* Fetch all records
+* Fetch specific record
+* Create new record
+* Update existing record
+* Delete existing record
+
+The Apigee proxy passes the trigger ID in the payload of the response. The proxy adds the trigger ID to the payload using an AssignMessage policy. 
+
+The format for integration API url is specified in the [API documentation](https://cloud.google.com/application-integration/docs/reference/rest/v1/projects.locations.integrations/execute)
+
+The integration API url is specified as the target endpoint in the Apigee proxy.
+
+The documentation has a side bar that allows you to test your Integration as well. This is an easier and faster way to ensure everything is working before configuring Apigee. 
+
+### Connector
+
+### Data Mapping
+
 # AppSheet
 ## Data source
 ## Application
