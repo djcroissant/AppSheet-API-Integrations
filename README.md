@@ -1,5 +1,10 @@
 # Intro
-This document describes how to use the Connectors platform as a data source in AppSheet. The following sequence diagram shows the whole process. The sections of this document describe each step. The recommended soundtrack for this solution is “[Ain’t No Mountain High Enough](https://youtu.be/-C_3eYj-pOM)”
+This document describes how to use the Connectors platform as a data source in AppSheet. The following sequence diagram shows the whole process. The sections of this document describe each step. Check out my [YouTube channel](https://youtu.be/IwXwEV7HT3M) for a recorded overview of the process. 
+
+
+ The recommended soundtrack for this solution is “[Ain’t No Mountain High Enough](https://youtu.be/-C_3eYj-pOM)”
+
+
 
 ![Integrations sequence diagram](Images/integration_connectors.png)
 
