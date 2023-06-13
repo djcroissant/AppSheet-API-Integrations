@@ -143,12 +143,15 @@ Screenshot of full integration
 ![Fetch all integration](Images/fetch_all_integration.png)
 
 Screenshot of API trigger
+
 ![Fetch all API trigger](Images/fetch_all_api_trigger.png)
 
 Screenshot of Connector
+
 ![Fetch all Connector](Images/fetch_all_connector.png)
 
 Screenshot of Data Mapping
+
 ![Fetch all Data Mapping](Images/fetch_all_data_mapping.png)
 
 \<Set> block of AssignMessage policy in Apigee
@@ -318,4 +321,15 @@ You can now use the data source in any of your AppSheet apps.
 ![Apigee data source config](Images/apigee_data_source.png)
 
 ## Application
+Follow the [AppSheet design process](https://support.google.com/appsheet/answer/10099795?hl=en&ref_topic=11981018&sjid=5202102351486593604-NA) to create app connected to your API data source. Start by ensuring the basic CRUD (create, read, update, delete) operations work as expected. 
+
+**Special callout for AppSheet Chat apps**
+Now that you've done all the work to create an API data source, you can benefit from all the no-code features within AppSheet. For example, an [AppSheet Chat app](https://support.google.com/appsheet/answer/12860535?hl=en) allows you to interact with your API data source directly in Google Chat. 
+
+Using AppSheet, the IT team can configure an API data source and share it with a team. Business users can use that data source to create apps, manage processes, and send interactive notifications in gmail and chat. Check out a few [customer stories](https://about.appsheet.com/customers/) to see how other companies are using AppSheet.
+
 ## Example Architecture
+Use API data sources to consolidate information and processes across multiple data sources. Here's an example of how AppSheet can be used to pull data from multiple systems into a single dashboard. Employees no longer need to switch between multiple apps to perform common processes like updating Salesforce records or approving Jira tickets.
+
+**Simplified state with AppSheet**
+![Example Architecture](Images/example_architecture.png)
